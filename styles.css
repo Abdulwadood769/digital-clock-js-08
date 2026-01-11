@@ -1,0 +1,81 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:black;
+    font-family:'Segoe UI', sans-serif;
+}
+.clock-box{
+    position:relative;
+    width:620px;
+    height:220px;
+    border-radius:40px;
+    padding:25px;
+    background:#000;
+    box-shadow:
+        0 0 30px rgba(255,100,150,0.6),
+        0 0 60px rgba(255,150,80,0.5);
+}
+.clock-box::before{
+    content:"";
+    position:absolute;
+    inset:-3px;
+    border-radius:45px;
+    background:linear-gradient(90deg,#ff6aa2,#ffb86b);
+    z-index:-1;
+    animation:borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow{
+    0%{filter:hue-rotate(0deg);}
+    100%{filter:hue-rotate(360deg);}
+}
+.time{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    font-size:96px;
+    font-weight:700;
+    letter-spacing:4px;
+    color:#ffd1dc;
+    text-shadow:
+        0 0 15px #ff7aa2,
+        0 0 30px #ff9f80;
+}
+.colon{
+    animation:blink 1s infinite;
+}
+@keyframes blink{
+    0%,50%{opacity:1;}
+    51%,100%{opacity:0.2;}
+}
+.seconds{
+    font-size:40px;
+    margin-left:10px;
+    align-self:flex-end;
+    padding-bottom:12px;
+}
+.ampm{
+    font-size:22px;
+    margin-left:12px;
+    align-self:flex-end;
+    padding-bottom:18px;
+    opacity:0.85;
+}
+.footer{
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:3px;
+    color:#ff9fb8;
+    opacity:0.7;
+}
